@@ -28,11 +28,29 @@ jobs:
 
       - name: Install dependencies
         run: |
+          set -e
           poetry config virtualenvs.create false
-          poetry install --no-interaction --no-ansi
+          if ! poetry lock --no-interaction --no-ansi; then
+            echo "Poetry lock failed, attempting to continue";
+          fi
+          if ! poetry install --no-interaction --no-ansi; then
+            echo "Poetry install failed, falling back to pip install";
+            python -m pip install -U pip
+            python -m pip install -e .
+          fi
 
       - name: Lint
-        run: poetry run ruff check
+        run: |
+          if command -v poetry >/dev/null 2>&1; then
+            poetry run ruff check
+          else
+            ruff check
+          fi
 
       - name: Test
-        run: poetry run pytest
+        run: |
+          if command -v poetry >/dev/null 2>&1; then
+            poetry run pytest
+          else
+            pytest
+          fi
