@@ -6,7 +6,6 @@ __pycache__/
 .env
 .venv/
 .poetry/
-poetry.lock
 .mypy_cache/
 .pytest_cache/
 .cache/
