@@ -1,0 +1,15 @@
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.DS_Store
+.env
+.venv/
+.poetry/
+poetry.lock
+.mypy_cache/
+.pytest_cache/
+.cache/
+.idea/
+.vscode/
+.github/copilot-instructions.md

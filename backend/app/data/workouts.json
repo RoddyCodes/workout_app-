@@ -1,0 +1,228 @@
+{
+  "templates": [
+    {
+      "id": "hypertrophy_foundations",
+      "name": "Hypertrophy Foundations Upper/Lower",
+      "description": "Four to five day upper-lower rotation emphasising moderate volumes and progressive overload in the 6-12 rep range.",
+      "goal": "hypertrophy",
+      "experience_level": "intermediate",
+      "weekly_frequency_options": [4, 5],
+      "equipment": ["barbell", "dumbbells", "cables", "machines"],
+      "training_split": [
+        {
+          "day": "Day 1 - Upper (Volume)",
+          "focus": "Upper body hypertrophy with horizontal press priority.",
+          "primary_lifts": [
+            "Bench Press 4x6-8",
+            "Weighted Pull-Up 4x6-8"
+          ],
+          "accessory_work": [
+            "Incline Dumbbell Press 3x8-12",
+            "Chest Supported Row 3x8-12",
+            "Lateral Raise 3x12-15",
+            "Cable Triceps Pressdown 3x10-14"
+          ]
+        },
+        {
+          "day": "Day 2 - Lower (Strength Emphasis)",
+          "focus": "Strength-biased lower session with hamstring accessories.",
+          "primary_lifts": [
+            "Back Squat 4x4-6",
+            "Romanian Deadlift 3x6-8"
+          ],
+          "accessory_work": [
+            "Leg Press 3x10-12",
+            "Walking Lunges 2x12 each leg",
+            "Leg Curl 3x12-15",
+            "Hanging Leg Raise 3x12"
+          ]
+        },
+        {
+          "day": "Day 3 - Upper (Pull Priority)",
+          "focus": "Pull dominant session to balance shoulder volume.",
+          "primary_lifts": [
+            "Bent Over Row 4x6-8",
+            "Standing OHP 3x6-8"
+          ],
+          "accessory_work": [
+            "Lat Pulldown 3x8-12",
+            "Cable Chest Fly 3x12-15",
+            "Face Pull 3x15",
+            "Barbell Curl 3x10-12"
+          ]
+        },
+        {
+          "day": "Day 4 - Lower (Hypertrophy)",
+          "focus": "Glute and quad growth with controlled tempo work.",
+          "primary_lifts": [
+            "Front Squat 3x6-8",
+            "Hip Thrust 3x8-12"
+          ],
+          "accessory_work": [
+            "Rear Foot Elevated Split Squat 3x10 each leg",
+            "Leg Extension 3x12-15",
+            "Seated Calf Raise 3x12-15",
+            "Cable Wood Chop 3x12 each side"
+          ]
+        },
+        {
+          "day": "Optional Day 5 - Upper Pump",
+          "focus": "Higher rep pump work to cap weekly volume within recoverable limits.",
+          "primary_lifts": [
+            "Machine Chest Press 3x12",
+            "Single Arm Lat Row 3x12"
+          ],
+          "accessory_work": [
+            "Cable Lateral Raise 4x15",
+            "Rope Triceps Extension 3x15",
+            "Hammer Curl 3x12",
+            "Reverse Pec Deck 3x15"
+          ]
+        }
+      ],
+      "coaching_notes": [
+        "Run sessions with 1-2 reps in reserve to manage fatigue and drive long term progression.",
+        "Rotate accessory variations every 8-10 weeks to maintain novelty while tracking compound lifts closely.",
+        "Match weekly set targets of 10-14 hard sets per major muscle group in line with evidence-based ranges."
+      ]
+    },
+    {
+      "id": "strength_intensification",
+      "name": "Strength Intensification Full Body",
+      "description": "Four day full-body layout blending heavy triples with secondary hypertrophy work for advanced lifters.",
+      "goal": "strength",
+      "experience_level": "advanced",
+      "weekly_frequency_options": [4],
+      "equipment": ["barbell", "dumbbells", "platform", "rack"],
+      "training_split": [
+        {
+          "day": "Day 1 - Heavy Squat Focus",
+          "focus": "High intensity squatting with posterior chain support.",
+          "primary_lifts": [
+            "Back Squat 5x3 @80-85%1RM",
+            "Paused Squat 3x3"
+          ],
+          "accessory_work": [
+            "Deficit Deadlift 3x4",
+            "Glute Ham Raise 3x8",
+            "Standing Calf Raise 4x10"
+          ]
+        },
+        {
+          "day": "Day 2 - Heavy Bench + Pull",
+          "focus": "Pressing intensity with horizontal pull supersetting.",
+          "primary_lifts": [
+            "Competition Bench 5x3",
+            "2-Count Paused Bench 3x3"
+          ],
+          "accessory_work": [
+            "Pendlay Row 4x6",
+            "Weighted Dip 3x6-8",
+            "Rear Delt Fly 3x15"
+          ]
+        },
+        {
+          "day": "Day 3 - Deadlift Power",
+          "focus": "Heavy pull with speed emphasis and posterior chain assistants.",
+          "primary_lifts": [
+            "Deadlift 5x3",
+            "Speed Deadlift 6x2 @60%"
+          ],
+          "accessory_work": [
+            "Front Squat 3x5",
+            "Reverse Hyper 3x12",
+            "Hanging Knee Raise 3x15"
+          ]
+        },
+        {
+          "day": "Day 4 - Bench Volume + Upper Accessories",
+          "focus": "Submaximal volume to accumulate bench practice and joint-friendly upper work.",
+          "primary_lifts": [
+            "Close Grip Bench 4x6",
+            "Seated OHP 3x6-8"
+          ],
+          "accessory_work": [
+            "Chest Supported Row 3x8-10",
+            "Incline Dumbbell Press 3x10",
+            "Cable Fly 3x15",
+            "Hammer Curl 3x10"
+          ]
+        }
+      ],
+      "coaching_notes": [
+        "Wave top sets across weeks (heavy, volume, deload) to respect advanced recovery needs.",
+        "Keep 0-1 reps in reserve on primary triples while leaving 2 reps in reserve on supporting work.",
+        "Use objective velocity tracking or perceived bar speed to manage fatigue between exposures."
+      ]
+    },
+    {
+      "id": "body_recomp_minimalist",
+      "name": "Body Recomp Minimalist",
+      "description": "Three to four day routine built for lifters with limited equipment seeking simultaneous muscle gain and fat loss.",
+      "goal": "body_recomposition",
+      "experience_level": "beginner",
+      "weekly_frequency_options": [3, 4],
+      "equipment": ["dumbbells", "adjustable bench", "resistance bands", "bodyweight"],
+      "training_split": [
+        {
+          "day": "Day 1 - Push + Core",
+          "focus": "Compound pressing with core density finishers.",
+          "primary_lifts": [
+            "Dumbbell Bench Press 3x8-10",
+            "Band Assisted Push-Up 3xAMRAP"
+          ],
+          "accessory_work": [
+            "Seated Shoulder Press 3x10",
+            "Band Fly 3x15",
+            "Plank 3x45s"
+          ]
+        },
+        {
+          "day": "Day 2 - Lower + Conditioning",
+          "focus": "Lower body strength with metabolic finisher for energy expenditure.",
+          "primary_lifts": [
+            "Goblet Squat 4x10",
+            "Dumbbell Romanian Deadlift 3x10"
+          ],
+          "accessory_work": [
+            "Split Squat 3x12",
+            "Glute Bridge 3x15",
+            "10 Minute EMOM Alternating Swings and Mountain Climbers"
+          ]
+        },
+        {
+          "day": "Day 3 - Pull + Conditioning",
+          "focus": "Pulling volume, posture work, and calorie burn.",
+          "primary_lifts": [
+            "One Arm Row 3x12",
+            "Band Pulldown 3x12"
+          ],
+          "accessory_work": [
+            "Band Face Pull 3x15",
+            "Hammer Curl 3x12",
+            "Farmer Carry 4x40m"
+          ]
+        },
+        {
+          "day": "Optional Day 4 - Athletic Circuit",
+          "focus": "Total body circuit to raise weekly energy expenditure without adding joint stress.",
+          "primary_lifts": [
+            "Dumbbell Clean and Press 4x8",
+            "Jump Rope Intervals 6x1 min"
+          ],
+          "accessory_work": [
+            "Walking Lunge 3x15",
+            "Band Good Morning 3x15",
+            "Hollow Body Hold 3x30s"
+          ]
+        }
+      ],
+      "coaching_notes": [
+        "Use rate of perceived exertion 7-8 on compound moves to leave headroom for incremental progress.",
+        "Pair each strength session with 7-9k daily steps to reinforce recomposition outcomes.",
+        "Prioritise protein intake of 1.8-2.2 g/kg body weight and keep a slight calorie deficit.",
+        "Add the fourth day only when recovery markers (sleep, soreness) remain solid."
+      ]
+    }
+  ]
+}
