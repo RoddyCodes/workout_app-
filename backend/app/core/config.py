@@ -12,6 +12,23 @@ class Settings(BaseSettings):
     data_path: Path = Field(
         default=Path(__file__).resolve().parent.parent / "data" / "workouts.json"
     )
+    cors_origins: list[str] = Field(
+        default=["http://localhost:3000", "http://127.0.0.1:3000"],
+        description="Allowed CORS origins for browsers",
+    )
+    database_url: str = Field(
+        default="sqlite:///./workout.db",
+        description="SQLAlchemy database URL",
+    )
+    llm_base_url: str = Field(
+        default="http://localhost:11434/api/generate",
+        description="Base URL for the local LLM API (Ollama)",
+    )
+    llm_model: str = Field(
+        default="llama3.2:3b",
+        description="Model name for the local LLM",
+    )
+    llm_enabled: bool = Field(default=True, description="Enable/disable LLM calls")
 
     model_config = {
         "env_file": ".env",

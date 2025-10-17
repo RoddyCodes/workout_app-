@@ -4,11 +4,27 @@ __pycache__/
 *.pyd
 *.DS_Store
 .env
+.env.*
+!.env.example
 .venv/
 .poetry/
 .mypy_cache/
 .pytest_cache/
 .cache/
+.ruff_cache/
 .idea/
 .vscode/
+
+# Databases
+workout.db
+test_chat.db
+*.db
+*.sqlite*
+
+# Coverage / reports / logs
+.coverage*
+htmlcov/
+*.log
+
+# Keep these local only
 .github/copilot-instructions.md

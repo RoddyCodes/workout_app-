@@ -6,47 +6,81 @@ Science-first workout recommendation service that follows Jeff Nippard inspired 
 - FastAPI backend serving workout recommendations via REST.
 - Templates tagged by goal, experience, frequency, and equipment needs.
 - Simple heuristic recommender with graceful fallbacks when inputs do not fully match.
-- Pytest suite covering the recommendation endpoint.
+- SQLAlchemy models with a feedback endpoint and Alembic migrations.
+- Pytest suite covering endpoints and service logic.
+ - New: Chat endpoint backed by a local LLM (Ollama) with retrieval from the DB.
 
 ## Getting Started
-1. Install Poetry if you do not already have it (`pip install poetry`).
-2. Install dependencies:
+1. Create and activate a venv (or use Poetry if you prefer). Using venv:
    ```bash
-   poetry install
+   python -m venv .venv
+   source .venv/bin/activate
+   pip install -U pip
+   pip install -e .
    ```
-3. Activate the virtual environment:
+2. Run database migrations and seed templates (first run):
    ```bash
-   poetry shell
+   alembic upgrade head
+   python scripts/seed_workouts.py
    ```
-4. Run the FastAPI server:
+3. Start the API:
    ```bash
    uvicorn backend.app.main:app --reload
    ```
-5. Visit the automatic docs at `http://127.0.0.1:8000/docs` to explore the API.
+4. Visit `http://127.0.0.1:8000/docs` to explore the API.
 
 ## Running Tests
 ```bash
-poetry run pytest
+pytest -q
 ```
 
+## Chat (MVP)
+ Endpoint: `POST /api/chat/`
+  - Request: `{ "message": "string", "top_k": 3 }`
+  - Response: `{ "answer": "string", "sources": [{"title": "...", "url": "..."}], "model": "llama3.2:3b" }`
+  - Retrieval: SQLite FTS5 + LIKE fallback. We tokenize your question to improve matches.
+  - LLM: Defaults to a local Ollama server. If unreachable, you still get a concise retrieval-only answer with sources.
+  - Install Ollama and run a model:
+    ```bash
+    brew install ollama
+    ollama serve &
+    ollama pull llama3.2:3b
+    ollama run llama3.2:3b
+    ```
+  - Config: either set env vars or edit `.env` (already created):
+    ```bash
+    export LLM_BASE_URL=http://127.0.0.1:11434/api/generate
+    export LLM_MODEL=llama3.2:3b
+    export LLM_ENABLED=true
+    ```
+
 ## Architecture
-- `backend/app/main.py` boots the FastAPI instance and wires routes.
-- `backend/app/api/routes/workouts.py` exposes the `/api/workouts/recommendations` endpoint.
-- `backend/app/services/recommendation.py` loads templates, scores matches, and returns responses.
-- `backend/app/schemas/workout.py` defines Pydantic request/response models and training session schema.
-- `backend/app/data/workouts.json` stores Jeff Nippard inspired templates written in original wording.
-- `tests/test_workouts.py` validates that the recommendation endpoint behaves as expected.
 
 ## Data and Assumptions
-- Workouts emphasise progressive overload, volume management, and recovery aligned with evidence-based coaching literature.
-- Equipment matching requires roughly 60 percent overlap to qualify as a direct match; otherwise a ranked fallback is used.
-- Experience levels grant access to templates designed for the same or lower complexity.
 
 ## Roadmap
 1. Add user profile persistence with relational storage (PostgreSQL or SQLite to start).
 2. Layer in workout progression tracking and auto-deload suggestions.
 3. Integrate nutrition and recipe recommendations with macro-aware meal planning.
 4. Introduce machine learning models for personalised adjustments once usage data accumulates.
+
+## Configuration
+- DATABASE_URL: Override the default SQLite dev DB. Example:
+   - `export DATABASE_URL=sqlite:///./workout.db`
+   - `export DATABASE_URL=postgresql+psycopg://user:pass@localhost:5432/workout`
+- LLM settings:
+   - `LLM_BASE_URL` (default `http://127.0.0.1:11434/api/generate`)
+   - `LLM_MODEL` (default `llama3.2:3b`)
+   - `LLM_ENABLED` (default `true`)
+
+## VS Code Tasks
+- API: run (reload)
+- Tests: run
+- DB Migrate (alembic upgrade head)
+- DB Seed Workouts
+ 
+## Notes on sources
+- Keep this MVP grounded in your curated, science-based content. For Jeff Nippard YouTube material, store titles/links and (if permitted) short transcript snippets for context. The assistant references your stored context with simple citations like [1], [2].
 
 ## Next Steps
 - Decide on the deployment target (container, managed hosting) and produce the necessary infrastructure.
